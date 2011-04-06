@@ -1,0 +1,54 @@
+html {
+	background:#171717;
+	color:#333;
+}
+a {
+	color:#333;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+.yui-t2 .yui-b {
+	width:14.1em;
+}
+#hd {
+	padding:10px 0 0 0;
+	margin:0 0 5px 0;
+}
+#logo {
+	background:transparent url(../images/logo.png) no-repeat;
+	display:block;
+	width:272px;
+	height:52px;
+	text-indent:-10000px;
+}
+#top-menu {
+	height:24px;
+	border:2px solid #666;
+	background:#fff;
+	margin:5px 0 0 0;
+}
+#top-menu li {
+	float:left;
+	display:block;
+	margin:4px 10px 0 5px;
+	padding:0 15px 0 0;
+	text-indent:20px;
+	background:transparent url(../images/icons.png) no-repeat top left;
+	border-right:1px solid #999;
+}
+#top-menu li.media {
+	background-position:0px -16px;
+}
+#top-menu li.folders {
+	background-position:0px -32px;
+}
+#top-menu li.users {
+	background-position:0px -48px;
+}
+#sidebar, #main {
+	border:2px solid #666;
+	background:#fff;
+	min-height:100px;
+}
