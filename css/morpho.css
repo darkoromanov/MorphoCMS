@@ -2,12 +2,56 @@ html {
 	background:#171717;
 	color:#333;
 }
+h1 {
+	font-size:14px;
+	text-shadow:#aaa 1px 1px 1px;
+}
 a {
 	color:#333;
 	text-decoration:none;
 }
 a:hover {
-	text-decoration:underline;
+	text-decoration:underline;	
+}
+a.icon {
+	display:block;
+	width:16px;
+	height:16px;
+	background:transparent url(../images/icons.png) no-repeat;
+	text-indent:-10000px;
+}
+a.add.icon {
+	background:transparent url(../images/icons.png) no-repeat 0px -64px;
+}
+a.help.icon {
+	background:transparent url(../images/icons.png) no-repeat 0px -80px;
+}
+a.button {
+	padding:5px 20px;
+	color:#111;
+	font-size:14px;
+	font-weight:bold;
+	border:1px solid #111;
+	margin:0 5px;
+}
+a.button:hover {
+	background:#111;
+	color:#fff;
+	text-decoration:none;	
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+input[type=text] {
+	border:0;
+	border-bottom:1px solid #999;
+	font-family:Courier;
+}
+select {
+	font-family:Courier;
 }
 .yui-t2 .yui-b {
 	width:14.1em;
@@ -37,7 +81,8 @@ a:hover {
 	text-indent:20px;
 	background:transparent url(../images/icons.png) no-repeat top left;
 	border-right:1px solid #999;
-}
+	text-shadow:#aaa 1px 1px 1px;
+} 
 #top-menu li.media {
 	background-position:0px -16px;
 }
@@ -50,5 +95,82 @@ a:hover {
 #sidebar, #main {
 	border:2px solid #666;
 	background:#fff;
-	min-height:100px;
+	min-height:100px;	
+}
+#sidebar {
+	text-shadow:#aaa 1px 1px 1px;
+}
+#sidebar .add a {	
+	display:block;
+	height:16px;
+	margin:10px;
+	border-bottom:1px solid #ccc;
+	padding:0 0 10px 0;
+}
+#sidebar .add span {
+	margin:0 4px 0 0;
+}
+#main {
+	padding:5px;
+}
+#main h1 {
+	margin:0 0 15px 0;
+}
+#main h2 {
+	background:#111;
+	color:#fff;
+	margin:-10px -10px 20px -10px;
+	font-size:11px;
+	padding:2px 5px;
+}
+#main .panel {
+	float:left;
+	border:1px solid #ccc;
+	padding:10px;
+}
+#main .data.panel {
+	width:328px;
+	min-height:200px;
+	margin:0 5px 0 0;
+}
+#main .properties.panel {
+	width:389px;	
+}
+#main .data.panel label {
+	float:left;
+	width:45px;	
+	width:120px;
+}
+#main .data.panel p {
+	clear:both;	
+	margin:0 0 8px 0;
+}
+#main .data.panel .add-property-panel {
+	border-bottom:1px solid #ccc;
+	height:40px;
+}
+#main .data.panel .add-property {
+	float:left;	
+	margin:0 4px 0 0;	
+	font-size:11px;
+}
+#main .data.panel .properties {
+	margin:0 0 30px 0;
+}
+#main .data.panel .properties label {
+	width:120px;
+	font-weight:bold;
+	color:#111;
+	line-height:23px;
+}
+#main .data.panel .properties .help {
+	float:right;
+}
+#main .data.panel .buttons {
+	margin:20px 0 0 0;
+	text-align:center;
+}
+
+#main h2.validation {
+	margin-top:20px;
 }
