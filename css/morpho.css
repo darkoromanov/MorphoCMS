@@ -122,9 +122,18 @@ select {
 #main h2 {
 	background:#111;
 	color:#fff;
-	margin:-10px -10px 20px -10px;
+	margin:-10px -10px 10px -10px;
 	font-size:11px;
-	padding:2px 5px;
+	padding:2px 10px;
+}
+#main h3 {
+	background:#555;
+	color:#fff;	
+	font-size:12px;
+	font-weight:bold;
+	padding:5px;
+	margin:0px -10px 10px -10px;
+	text-align:center;
 }
 #main .panel {
 	float:left;
@@ -153,8 +162,8 @@ select {
 	height:40px;
 }
 #main .data.panel .add-property {
-	float:left;	
-	margin:0 4px 0 0;	
+	text-align:center;
+	margin:20px 4px 0 0;	
 	font-size:11px;
 }
 #main .data.panel .properties {
@@ -169,9 +178,12 @@ select {
 #main .data.panel .properties .help {
 	float:right;
 }
+#main .data.panel .properties .prop {
+	display:none;	
+}
 #main .data.panel .buttons {
 	margin:20px 0 0 0;
-	text-align:center;
+	text-align:center;	
 }
 
 #main h2.validation {

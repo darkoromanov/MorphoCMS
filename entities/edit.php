@@ -3,7 +3,6 @@
 	<div class="yui-b">
 		<div class="yui-g entities" id="main">
 			<h1>Define a new entity</h1>
-			
 			<div>
 				<div class="data panel">
 					<h2>Entity data</h2>
@@ -12,108 +11,86 @@
 						<p>
 							<label>Name:</label>
 							<input type="text" name="name" />
+							<a href="#" class="ui-icon ui-icon-help right">Help</a>
 						</p>
 						<p>
 							<label>Code:</label>
 							<input type="text" name="code" />
+							<a href="#" class="ui-icon ui-icon-help right">Help</a>
 						</p>
 						<div class="add-property-panel">
 							<p class="add-property">
-								Add a property 
+								Add a property of type
 								<select name="type">
 									<option value="text">text</option>
 									<option value="integer">integer</option>
 									<option value="float">float</option>
 									<option value="relation">relation</option>
 									<option value="media">media</option>
-									<option value="media">date</option>
+									<option value="date">date</option>
 								</select>
-							</p>
-							<a href="#" class="ui-icon ui-icon-plusthick left">Add</a>
+							</p>							
 						</div>
 						
 						<div class="properties">
-							<h2>Options</h2>
-							<div class="prop text">
-								<p>
-									<label>Label</label>
-									<input type="text" class="label" />
-									<a href="#" class="ui-icon ui-icon-help right">Help</a>
-								</p>
-								<p>
-									<label>Code</label>
-									<input type="text" class="pcode" />
-									<a href="#" class="ui-icon ui-icon-help right">Help</a>
-								</p>
-								<p>
-									<label>Default value</label>
-									<input type="text" class="defval" />
-									<a href="#" class="ui-icon ui-icon-help right">Help</a>
-								</p>
-								<p>
-									<label>Tip</label>
-									<input type="text" class="tip" />
-									<a href="#" class="ui-icon ui-icon-help right">Help</a>
-								</p>
-								<p>
-									<label>Mandatory</label>
-									<input type="checkbox" class="mandatory" /> Yes
-									<a href="#" class="ui-icon ui-icon-help right">Help</a>
-								</p>
-								<p>
-									<label>Pattern</label>
-									<input type="checkbox" class="pattern" /> Yes
-									<a href="#" class="ui-icon ui-icon-help right">Help</a>
-								</p>
-								<h2 class="validation">Validation</h2>
-								<div class="conditions">
-									<p>
-										<label>Min length</label>
-										<input type="text" class="minleng" />
-										<a href="#" class="ui-icon ui-icon-help right">Help</a>
-									</p>
-									<p>
-										<label>Max length</label>
-										<input type="text" class="maxleng" />
-										<a href="#" class="ui-icon ui-icon-help right">Help</a>
-									</p>
-									<p>
-										<label>RegExp</label>
-										<input type="text" class="regexp" />
-										<a href="#" class="ui-icon ui-icon-help right">Help</a>
-									</p>
-								</div>								
-							</div>							
+							<!-- <h2>Options</h2> -->
+							<?php include "properties-tpl/text.php" ?>					
+							<?php include "properties-tpl/date.php" ?>
 						</div>
 						<div class="buttons">
-							<a href="#" class="button">Add property</a>
+							<a href="#" class="button add-property">Add property</a>
 							<a href="#" class="button">Save entity</a>
 						</div>
-					</div>
-					
-					<div class="property">
-					
 					</div>
 				</div>
 				<div class="properties panel">
 					<h2>Entity properties</h2>
+					<div class="empty ui-state-highlight ui-corner-all"> 
+						<p style="margin:10px"><span style="margin-right: 0.7em;" class="ui-icon ui-icon-info left"></span>
+							This entity doesn't have any property yet
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-	$(function () {
-		$(".ui-icon-help").fadeTo(500, .2);
-		$("#main .data.panel p").hover(
-			function () {
-				$(this).find(".ui-icon-help").fadeTo(100, 1);
-			},
-			function () {
-				$(this).find(".ui-icon-help").fadeTo(100, .2);
-			}
-		);
-	});
+
+Morpho.Core.addToStartupDuties(function () {	
+	$(".ui-icon-help").fadeTo(500, .2);
+	$("#main .data.panel p").hover(
+		function () {
+			$(this).find(".ui-icon-help").fadeTo(100, 1);
+		},
+		function () {
+			$(this).find(".ui-icon-help").fadeTo(100, .2);
+		}
+	);
+
+	//load the correct property panel
+	$(".add-property select").change(function () {
+		var type = $(this).val();
+		$("#main .data.panel .properties .prop").hide();
+		$("#main .data.panel .properties .prop."+type).show();
+	}).change();
+
+	//auto slug of the entity name
+	$("input[name=name]").keyup(function () {
+        var v = $(this).val();            
+        v = Morpho.Utils.slug(v);        
+        $("input[name=code]").val(v);
+    });
+	//auto slug of the property name
+	$("input.label").keyup(function () {
+        var v = $(this).val();            
+        v = Morpho.Utils.slug(v);        
+        $("input.pcode").val(v);
+    });
+
+	//bind add property button click
+	$(".button.add-property").click(Morpho.Entity.Property.add);
+});
 </script>
 
 <div class="yui-b" id="sidebar">
