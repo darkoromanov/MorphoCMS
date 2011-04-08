@@ -39,6 +39,9 @@ a.button:hover {
 	color:#fff;
 	text-decoration:none;	
 }
+.ui-icon-help {
+	display:none;
+}
 .left {
 	float:left;
 }
