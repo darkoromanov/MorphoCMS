@@ -4,6 +4,7 @@ var Morpho = function () {
 	return {
 		Core: function(){},
 		Entity: function(){},
+		UI: function () {},
 		Utils: function(){}
 	};
 }();
@@ -15,20 +16,6 @@ Morpho.Core = function (){
 	};
 }();
 
-Morpho.Entity = function (){
-	return {
-		Property: function (){
-			return {
-				add: function () {
-					//duplicated name?
-					//duplicated code?
-					//missing name?
-					//missing code?
-				}				
-			}
-		}
-	};
-}();
 
 $(function () {
 	$.each(__startup_duties, function (i, f) {

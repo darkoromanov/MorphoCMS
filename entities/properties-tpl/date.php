@@ -14,11 +14,14 @@
 	</p>
 	<p>
 		<label>Default value</label>
-		<select class="defval">
-			<option></option>
-			<option value="current">current date</option>
-		</select>		
+		<input type="text" class="defval" />	
 		<a href="#" class="ui-icon ui-icon-help right">Help</a>
+		<span class="help-panel ui-widget ui-widget-content ui-corner-all">
+			Set the date to highlight on first opening if the field is blank. 
+			Specify an actual date via a string in the current dateFormat, 
+			or a number of days from today (e.g. +7) or a string of values and periods 
+			('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '+1m +7d').
+		</span>
 	</p>
 	<p>
 		<label>Tip</label>
@@ -38,24 +41,24 @@
 	<h2 class="validation">Validation</h2>
 	<div class="conditions">
 		<p>
-			<label>Min length</label>
+			<label>Min date</label>
 			<input type="text" class="minleng" />
 			<a href="#" class="ui-icon ui-icon-help right">Help</a>
+			<span class="help-panel ui-widget ui-widget-content ui-corner-all">
+				Set a minimum selectable date via a string in the current dateFormat, or a number of 
+				days from today (e.g. +7) or a string of values and periods 
+				('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '-1y -1m').
+			</span>
 		</p>
 		<p>
-			<label>Max length</label>
+			<label>Max date</label>
 			<input type="text" class="maxleng" />
 			<a href="#" class="ui-icon ui-icon-help right">Help</a>
-		</p>
-		<p>
-			<label>RegExp</label>
-			<input type="text" class="regexp" />
-			<a href="#" class="ui-icon ui-icon-help right">Help</a>
-		</p>
-		<p>
-		<label>HTML</label>
-		<input type="checkbox" class="rtf" /> Yes
-		<a href="#" class="ui-icon ui-icon-help right">Help</a>
-	</p>
+			<span class="help-panel ui-widget ui-widget-content ui-corner-all">
+				Set a maximum selectable date via a string in the current dateFormat, or a number of 
+				days from today (e.g. +7) or a string of values and periods 
+				('y' for years, 'm' for months, 'w' for weeks, 'd' for days, e.g. '-1y -1m').
+			</span>
+		</p>		
 	</div>								
 </div>		

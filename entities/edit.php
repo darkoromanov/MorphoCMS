@@ -12,11 +12,17 @@
 							<label>Name:</label>
 							<input type="text" name="name" />
 							<a href="#" class="ui-icon ui-icon-help right">Help</a>
+							<span class="help-panel ui-widget ui-widget-content ui-corner-all">
+								Specify the name of this entity
+							</span>
 						</p>
 						<p>
 							<label>Code:</label>
 							<input type="text" name="code" />
 							<a href="#" class="ui-icon ui-icon-help right">Help</a>
+							<span class="help-panel ui-widget ui-widget-content ui-corner-all">
+								Specify the code of this entity
+							</span>
 						</p>
 						<div class="add-property-panel">
 							<p class="add-property">
@@ -58,7 +64,14 @@
 <script type="text/javascript">
 
 Morpho.Core.addToStartupDuties(function () {	
-	$(".ui-icon-help").fadeTo(500, .2);
+	$(".ui-icon-help").fadeTo(500, .2).hover(
+			function() {
+				$(this).siblings(".help-panel").show();
+			},
+			function() {
+				$(this).siblings(".help-panel").hide();
+			}
+	);
 	$("#main .data.panel p").hover(
 		function () {
 			$(this).find(".ui-icon-help").fadeTo(100, 1);

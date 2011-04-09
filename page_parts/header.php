@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="/js/jquery-ui-1.8.11.custom.min.js"></script>
 	<script type="text/javascript" src="/js/morpho.core.js"></script>
 	<script type="text/javascript" src="/js/morpho.utils.js"></script>
+	<script type="text/javascript" src="/js/morpho.entity.js"></script>
+	<script type="text/javascript" src="/js/morpho.ui.js"></script>
 </head>
 <body>
 <div id="doc4" class="yui-t2">
