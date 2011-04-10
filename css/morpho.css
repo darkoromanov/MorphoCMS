@@ -156,14 +156,13 @@ select {
 	min-height:200px;
 	margin:0 5px 0 0;
 }
-#main .properties.panel {
-	width:389px;	
-}
+#main .prop label,
 #main .data.panel label {
 	float:left;
 	width:45px;	
 	width:120px;
 }
+#main .prop p,
 #main .data.panel p {
 	clear:both;	
 	margin:0 0 8px 0;
@@ -193,11 +192,48 @@ select {
 #main .data.panel .properties .prop {
 	display:none;	
 }
-#main .data.panel .buttons {
-	margin:20px 0 0 0;
+#main .buttons {
+	margin:20px 0;
 	text-align:center;	
 }
 
 #main h2.validation {
 	margin-top:20px;
+}
+
+#main .properties.panel {
+	width:389px;
+}
+#main .properties.panel .item {
+	background:#555;
+	color:#fff;
+	font-size:14px;
+	padding:7px;	
+}
+#main .properties.panel .item span {
+	font-size:11px;
+	margin:0 0 0 5px;	
+}
+#main .properties.panel .item .edit,
+#main .properties.panel .item .delete {
+	float:right;
+	background-image:url("Aristo/images/ui-icons_ffffff_256x240.png")	
+}
+#main .properties.panel .item .edit {
+	margin-right:5px;
+	float:left;
+}
+#main .properties.panel .item .prop {
+	background:#fff;
+	font-size:11px;
+	color:#111;	
+	padding-bottom:2px;
+}
+#main .properties.panel .item .prop p {
+	padding-left:4px;
+	margin:4px 0;
+}
+#main .properties.panel .item .prop h2, 
+#main .properties.panel .item .prop h3 {
+	margin:0;	
 }

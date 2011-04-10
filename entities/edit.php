@@ -98,7 +98,7 @@ Morpho.Core.addToStartupDuties(function () {
 	$("input.label").keyup(function () {
         var v = $(this).val();            
         v = Morpho.Utils.slug(v);        
-        $("input.pcode").val(v);
+        $(this).parents(".prop").find("input.pcode").val(v);
     });
 
 	//bind add property button click

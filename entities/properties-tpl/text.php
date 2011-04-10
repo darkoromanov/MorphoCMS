@@ -4,7 +4,7 @@
 	<a name="text" class="type"></a>
 	<p>
 		<label>Label</label>
-		<input type="text" class="label" />
+		<input type="text" class="label" value="" />
 		<a href="#" class="ui-icon ui-icon-help right">Help</a>
 		<span class="help-panel ui-widget ui-widget-content ui-corner-all">
 			Specify the label for the property
@@ -12,7 +12,7 @@
 	</p>
 	<p>
 		<label>Code</label>
-		<input type="text" class="pcode" />
+		<input type="text" class="pcode" value="" />
 		<a href="#" class="ui-icon ui-icon-help right">Help</a>
 		<span class="help-panel ui-widget ui-widget-content ui-corner-all">
 			Specify the code for the property
@@ -36,7 +36,7 @@
 	</p>	
 	<p>
 		<label>Default value</label>
-		<input type="text" class="defval" />
+		<input type="text" class="defval" value="" />
 		<a href="#" class="ui-icon ui-icon-help right">Help</a>
 		<span class="help-panel ui-widget ui-widget-content ui-corner-all">
 			The value set by default 
@@ -44,7 +44,7 @@
 	</p>
 	<p>
 		<label>Tip</label>
-		<input type="text" class="tip" />
+		<input type="text" class="tip" value="" />
 		<a href="#" class="ui-icon ui-icon-help right">Help</a>
 		<span class="help-panel ui-widget ui-widget-content ui-corner-all">
 			Show a tip near the field 
@@ -66,15 +66,15 @@
 	<div class="conditions">
 		<p>
 			<label>Min length</label>
-			<input type="text" class="minleng" />
+			<input type="text" class="minleng" value="" />
 		</p>
 		<p>
 			<label>Max length</label>
-			<input type="text" class="maxleng" />
+			<input type="text" class="maxleng" value="" />
 		</p>
 		<p>
 			<label>RegExp</label>
-			<input type="text" class="regexp" />
+			<input type="text" class="regexp" value="" />
 		</p>		
 	</div>								
 </div>		
