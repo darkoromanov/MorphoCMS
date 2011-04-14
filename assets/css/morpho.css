@@ -237,3 +237,13 @@ select {
 #main .properties.panel .item .prop h3 {
 	margin:0;	
 }
+
+.ui-dialog.loading {
+	
+}
+.ui-dialog.loading .ui-dialog-titlebar {
+	display:none;	
+}
+.ui-dialog.loading .spinner {
+	margin:30px auto;
+}

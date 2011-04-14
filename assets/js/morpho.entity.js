@@ -3,6 +3,7 @@ Morpho.Entity = function (){
 		Property: function (){},
 		
 		save: function (){
+			Morpho.UI.show_loading();
 			var name = $("input[name=name]").val();
 			if(name == "") {
 				Morpho.UI.alert({
@@ -10,13 +11,48 @@ Morpho.Entity = function (){
 					text: "Insert the name of the entity",
 					resizable: false
 				});
+				Morpho.UI.close_loading();
 				return false;
 				
 				
 			}
-			$.post("/index.php/entity/get_list/", {name: name}, function(r) {
-				
-				var code = $("input[name=code]").val();
+			$.post("/index.php/entity/get_list/", {name: name}, function(data) {
+				if(data.length > 0) {
+					Morpho.UI.alert({
+						title: "Attention",
+						text: "Name '"+name+"' already used",
+						resizable: false
+					});
+					Morpho.UI.close_loading();
+					return false;					
+				}
+				else {					
+					var code = $("input[name=code]").val();
+					if(code == "") {
+						Morpho.UI.alert({
+							title: "Attention",
+							text: "Insert the code of the entity",
+							resizable: false
+						});
+						return false;
+						
+						
+					} else {
+						$.post("/index.php/entity/get_list/", {code: code}, function(data) {
+							if(data.length > 0) {
+								Morpho.UI.alert({
+									title: "Attention",
+									text: "Code '"+code+"' already used",
+									resizable: false
+								});
+								return false;					
+							}
+							else {					
+								
+							}
+						});
+					}
+				}
 			});
 		}
 	};
