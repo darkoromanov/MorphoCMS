@@ -31,4 +31,20 @@ class Entity_model extends Morpho_Model {
     		return $result;
     	}
     }
+    
+    function save($entity)
+    {
+    	$this->load->database();
+    	if(isset($entity['id']))
+    		$this->db->insert('entity', $entity);
+    	else
+    		$this->db->update('entity', $entity);
+    	
+    	if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
+    		header("Content-type: text/x-json");
+    		print json_encode(true);
+    	} else {
+    		return true;
+    	}
+    }
 }

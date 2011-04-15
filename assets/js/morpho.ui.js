@@ -13,6 +13,24 @@ Morpho.UI = function (){
 					}
 				});
 		},
+		confirm: function(options) {
+			var $confirm = $("<div title='"+options.title+"'></div>")
+			.html(options.text)
+			.dialog({
+				modal:true,
+				buttons: {				
+					No: function() {
+						$confirm.dialog("destroy");
+					},
+					Yes: function() {
+						if($.isFunction(options.callback)) {
+							$confirm.dialog('destroy');
+							options.callback.call(this);
+						}
+					}
+				}
+			});
+		},
 		show_loading: function () {
 			$_loading_dialog = $("<div><img class='spinner' src='/assets/images/spinner.gif' alt='Loading...' /></div>")
 				.dialog({

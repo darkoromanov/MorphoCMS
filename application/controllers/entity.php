@@ -24,6 +24,17 @@ class Entity extends CI_Controller {
 		$this->Entity_model->get_list($filter);
 	}
 	
+	public function save()
+	{
+		$this->load->model('Entity_model');
+		$entity = array();		
+		$entity['id'] = $this->input->post('id');
+		$entity['name'] = $this->input->post('name');
+		$entity['code'] = $this->input->post('code');
+		
+		$this->Entity_model->save($entity);
+	}
+	
 	private function load_view($view)
 	{
 		$this->load->view('fragments/header');

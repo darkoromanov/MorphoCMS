@@ -104,7 +104,7 @@ Morpho.Core.addToStartupDuties(function () {
 	$(".button.add-property").click(Morpho.Entity.Property.add);
 
 	//bind save entity button click
-	$(".button.save-property").click(Morpho.Entity.save);	
+	$(".button.save-property").click(function () {Morpho.Entity.save(true);});	
 });
 </script>
 
