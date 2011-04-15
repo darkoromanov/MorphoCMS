@@ -4,6 +4,8 @@ Morpho.Entity = function (){
 		
 		save: function (){
 			Morpho.UI.show_loading();
+			
+			// check 1 : empty name
 			var name = $("input[name=name]").val();
 			if(name == "") {
 				Morpho.UI.alert({
@@ -12,10 +14,21 @@ Morpho.Entity = function (){
 					resizable: false
 				});
 				Morpho.UI.close_loading();
-				return false;
-				
-				
+				return false;							
 			}
+			
+			// check 2 : empty code
+			var code = $("input[name=code]").val();
+			if(code == "") {
+				Morpho.UI.alert({
+					title: "Attention",
+					text: "Insert the code of the entity",
+					resizable: false
+				});
+				return false;
+			}	
+			console.debug();
+			// check 3 name already in db
 			$.post("/index.php/entity/get_list/", {name: name}, function(data) {
 				if(data.length > 0) {
 					Morpho.UI.alert({
@@ -26,32 +39,38 @@ Morpho.Entity = function (){
 					Morpho.UI.close_loading();
 					return false;					
 				}
-				else {					
-					var code = $("input[name=code]").val();
-					if(code == "") {
-						Morpho.UI.alert({
-							title: "Attention",
-							text: "Insert the code of the entity",
-							resizable: false
-						});
-						return false;
-						
-						
-					} else {
-						$.post("/index.php/entity/get_list/", {code: code}, function(data) {
-							if(data.length > 0) {
-								Morpho.UI.alert({
-									title: "Attention",
-									text: "Code '"+code+"' already used",
-									resizable: false
-								});
-								return false;					
-							}
-							else {					
-								
-							}
-						});
-					}
+				else {	
+					console.debug();
+					// check 4 code already in db
+					$.post("/index.php/entity/get_list/", {code: code}, function(data) {						
+						if(data.length > 0) {
+							Morpho.UI.alert({
+								title: "Attention",
+								text: "Code '"+code+"' already used",
+								resizable: false
+							});
+							Morpho.UI.close_loading();
+							return false;					
+						}
+						else {												
+							//all checks are ok, we're going to insert the entity
+							var entity = {
+									name: name,
+									code: code
+							};
+							$.post('/index.php/entity/save', entity, function (r) {
+								Morpho.UI.close_loading();
+								if(r) {
+									Morpho.UI.alert({
+										title: "Confirm",
+										text: "Enity '"+name+"' saved",
+										resizable: false
+									});									
+									return true;									
+								}
+							});
+						}
+					});
 				}
 			});
 		}
