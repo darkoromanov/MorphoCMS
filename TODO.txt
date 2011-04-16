@@ -1,0 +1,2 @@
+* manage HTTP errors on ajax calls
+* numeric constraint on min/max length fields (text property validation)

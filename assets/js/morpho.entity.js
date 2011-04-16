@@ -54,7 +54,6 @@ Morpho.Entity = function (){
 					return false;					
 				}
 				else {	
-					console.debug();
 					// check 4 code already in db
 					$.post("/index.php/entity/get_list/", {code: code}, function(data) {						
 						if(data.length > 0) {
@@ -67,14 +66,55 @@ Morpho.Entity = function (){
 							return false;					
 						}
 						else {												
-							//all checks are ok, we're going to insert the entity
+							//all checks are ok, we're going to insert the entity							
 							var entity = {
+									id: 0,
 									name: name,
-									code: code
+									code: code,
+									properties : []
 							};
-							$.post('/index.php/entity/save', entity, function (r) {
+							if(! isNaN(parseInt($('#entity-id').val())))
+								entity.id = parseInt($('#entity-id').val());
+								
+							//adding all properties
+							$(".properties.panel .item").each(function () {
+								var property = {};
+								
+								//common attributes
+								property.type = $(this).find('a.type').attr('name');
+								property.label = $(this).find('.label').val();
+								property.code = $(this).find('.pcode').val();
+								property.pattern = $(this).find('.pattern:checked').size() > 0;
+								property.mandatory = $(this).find('.mandatory:checked').size() > 0;
+								property.tip = $(this).find('.tip').val();
+								
+								//property type specific attributes
+								switch(property.type)
+								{
+									case 'text':
+										property.html = $(this).find('.html:checked').size() > 0;
+										property.multiline = $(this).find('.multiline:checked').size() > 0;
+										property.default_value = $(this).find('.defval').val();
+										property.validation = {};
+										property.validation.minlen = parseInt($(this).find('.minlen').val());
+										if(isNaN(property.validation.minlen))
+												property.validation.minlen = -1;
+											
+										property.validation.maxlen = parseInt($(this).find('.maxlen').val());
+										if(isNaN(property.validation.maxlen))
+											property.validation.maxlen = -1;
+										
+										property.regexp = $(this).find('.regexp').val();
+										break;								
+								}
+								entity.properties.push(property);
+							});
+							
+							$.post('/index.php/entity/save', entity, function (id) {
+								$('#page-title').text('Editing entity \''+name+'\'');
 								Morpho.UI.close_loading();
-								if(r) {
+								if(id > 0) {
+									$('#entity-id').val(id);
 									Morpho.UI.alert({
 										title: "Confirm",
 										text: "Enity '"+name+"' saved",

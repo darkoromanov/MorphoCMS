@@ -1,11 +1,11 @@
 <div id="yui-main">
 	<div class="yui-b">
 		<div class="yui-g entities" id="main">
-			<h1>Define a new entity</h1>
+			<h1 id="page-title">Define a new entity</h1>
 			<div>
 				<div class="data panel">
 					<h2>Entity data</h2>
-					
+					<input id="entity-id" type="hidden" />
 					<div class="name-code">
 						<p>
 							<label>Name:</label>

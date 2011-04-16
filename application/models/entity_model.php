@@ -23,28 +23,22 @@ class Entity_model extends Morpho_Model {
 		$result = array();
 		foreach ($query->result_array() as $row)
 			$result[] = $row;
-			
-    	if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
-    		header("Content-type: text/x-json");
-    		print json_encode($result);
-    	} else {
-    		return $result;
-    	}
+			    	
+    	return $result;    	
     }
     
     function save($entity)
     {
     	$this->load->database();
-    	if(isset($entity['id']))
-    		$this->db->insert('entity', $entity);
-    	else
+    	if($entity['id'] > 0)
+    	{
     		$this->db->update('entity', $entity);
-    	
-    	if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
-    		header("Content-type: text/x-json");
-    		print json_encode(true);
-    	} else {
-    		return true;
+    		return $entity['id'];
+    	}
+    	else
+    	{
+    		$this->db->insert('entity', $entity);    	
+    		return $this->db->insert_id(); 
     	}
     }
 }

@@ -20,7 +20,7 @@
 	</p>
 	<p>
 		<label>HTML</label>
-		<input type="checkbox" class="rtf" /> Yes
+		<input type="checkbox" class="html" /> Yes
 		<a href="#" class="ui-icon ui-icon-help right">Help</a>
 		<span class="help-panel ui-widget ui-widget-content ui-corner-all">
 			It enables a rich text editor 
@@ -66,11 +66,11 @@
 	<div class="conditions">
 		<p>
 			<label>Min length</label>
-			<input type="text" class="minleng" value="" />
+			<input type="text" class="minlen" value="" />
 		</p>
 		<p>
 			<label>Max length</label>
-			<input type="text" class="maxleng" value="" />
+			<input type="text" class="maxlen" value="" />
 		</p>
 		<p>
 			<label>RegExp</label>
