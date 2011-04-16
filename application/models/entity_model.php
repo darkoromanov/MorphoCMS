@@ -18,7 +18,7 @@ class Entity_model extends Morpho_Model {
 			if(array_key_exists('name', $filter))
 				$this->db->where('name', $filter['name']);
 		}
-    	
+    	 
 		$query = $this->db->get('entity');
 		$result = array();
 		foreach ($query->result_array() as $row)

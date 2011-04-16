@@ -76,7 +76,7 @@ Morpho.Entity = function (){
 							if(! isNaN(parseInt($('#entity-id').val())))
 								entity.id = parseInt($('#entity-id').val());
 								
-							//adding all properties
+							//adding all properties 
 							$(".properties.panel .item").each(function () {
 								var property = {};
 								
