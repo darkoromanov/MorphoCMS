@@ -113,6 +113,20 @@ select {
 }
 #sidebar {
 	text-shadow:#aaa 1px 1px 1px;
+	padding:10px 5px;
+}
+#sidebar h4 {
+	font-weight:bold;
+	text-transform:uppercase;
+	margin:0 0 10px;
+	border-bottom:1px solid #999;
+	padding:0 0 5px;
+}
+#sidebar ul {
+	margin:0 0 0 10px;
+}
+#sidebar ul li {
+	list-style:circle inside;
 }
 #sidebar .add a {	
 	display:block;

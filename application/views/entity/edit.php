@@ -1,3 +1,4 @@
+<?php if(! isset($data_json)) $data_json = '{}' ?>
 <div id="yui-main">
 	<div class="yui-b">
 		<div class="yui-g entities" id="main">
@@ -105,9 +106,10 @@ Morpho.Core.addToStartupDuties(function () {
 
 	//bind save entity button click
 	$(".button.save-property").click(function () {Morpho.Entity.save(true);});	
+
+	var data = <?php print $data_json ?>;
+	$("input[name=name]").val(data.name);
+	$("input[name=code]").val(data.code);
 });
 </script>
 
-<div class="yui-b" id="sidebar">
-	<?php include "sidebar.php"?>
-</div>

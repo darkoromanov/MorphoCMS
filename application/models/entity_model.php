@@ -7,8 +7,8 @@ class Entity_model extends Morpho_Model {
         // Call the Model constructor
         parent::__construct();
     }
-    
-    function get_list($filter)
+        
+    function get_list($filter=null)
     {
     	$this->load->database();
 		if(isset($filter))
@@ -25,6 +25,13 @@ class Entity_model extends Morpho_Model {
 			$result[] = $row;
 			    	
     	return $result;    	
+    }
+    
+    function load($id)
+    {
+    	$this->load->database();
+    	$query = $this->db->get_where('entity', array('id' => $id));
+    	return $query->row_array();    	
     }
     
     function save($entity)
